@@ -1,0 +1,49 @@
+#!/bin/bash
+
+#Start to Setting up
+echo -e "\033[32mFile Copy Complete! setting up for use...\033[0m"
+sleep 3
+
+#add ldconfig root
+echo "refresh ldconfig..."
+sleep 1
+ldconfig
+
+#add qbittorrent user
+echo "Adding qbtuser.."
+sleep 1
+adduser qbtuser
+
+#reload systemctl daemon
+echo "reloading systemctl daemon.."
+sleep 1
+systemctl daemon-reload
+echo ""
+
+#Initialize Configuration
+echo -e "\033[31mNow installer will initialize config for you. \033[0m"
+echo -e "\033[31mAfter you will saw the progam need you to press Y, just do it and press Ctrl+C exit the program. \033[0m"
+echo -e ""
+echo -e "\033[31m****Please READ!!,the installer will automatically contine in 8 sec.**** \033[0m"
+sleep 8
+echo ""
+
+#run
+/opt/qbittorrent/bin/qbittorrent-nox
+
+#finish install
+echo "Finishing install..."
+mv -b ~/.config /home/qbtuser/
+chown -R qbtuser:qbtuser /home/qbtuser/.config
+sleep 3
+echo""
+
+echo "-----------------------------------"
+echo -e "\033[32minstall finish! \033[0m"
+echo "-----------------------------------"
+sleep 3
+echo -e "\033[33mrun 'sudo systemctl start qbittorrent' to stat the qbittorrent! \033[0m"
+echo -e "\033[33mrun 'sudo systemctl status qbittorrent'to Verify it is running. \033[0m"
+echo -e "\033[33mrun 'sudo systemctl enable qbittorrent' to Enable start up on boot! \033[0m"
+echo -e "\033[33madd '--webui-port=portmunber' after 'ExecStart=' in file '/etc/systemd/system/qbittorrent.service' if you cant not change the web port! \033[0m"
+

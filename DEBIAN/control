@@ -1,0 +1,11 @@
+Package:qbittorrent-nox
+Version:4.0.3
+Section:utils
+Priority:optional
+Depends:
+Suggests:
+Architecture:amd64
+Install-Size:286720
+Maintainer: zhijun1997[zhijun@ultgeek.com]
+Description: The qBittorrent project aims to provide an open-source software alternative to µTorrent. build by zhijun.
+

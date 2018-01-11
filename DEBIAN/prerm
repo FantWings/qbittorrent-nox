@@ -1,0 +1,2 @@
+#stop the qbittorrent
+sudo systemctl stop qbittorrent

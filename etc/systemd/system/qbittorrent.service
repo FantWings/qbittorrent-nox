@@ -1,0 +1,10 @@
+[Unit]
+Description=qBittorrent Daemon Service
+After=network.target
+
+[Service]
+User=qbtuser
+ExecStart=/opt/qbittorrent/bin/qbittorrent-nox
+
+[Install]
+WantedBy=multi-user.target
